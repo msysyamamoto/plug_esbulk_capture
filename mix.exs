@@ -27,6 +27,10 @@ defmodule PlugEsbulkCapture.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [{:plug, "~> 1.0"},
+     {:poison, "~> 1.5"},
+     {:ex_doc, ">= 0.0.0", only: :docs},
+     {:earmark, ">= 0.0.0", only: :docs}
+    ]
   end
 end
