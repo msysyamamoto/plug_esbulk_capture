@@ -7,14 +7,16 @@ defmodule PlugEsbulkCapture.Mixfile do
      elixir: "~> 1.1",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps]
+     deps: deps,
+     description: "Support the elasticsearch bulk API interface.",
+     package: package]
   end
 
   # Configuration for the OTP application
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    [applications: [:logger, :plug, :poison]]
   end
 
   # Dependencies can be Hex packages:
@@ -30,7 +32,12 @@ defmodule PlugEsbulkCapture.Mixfile do
     [{:plug, "~> 1.0"},
      {:poison, "~> 1.5"},
      {:ex_doc, ">= 0.0.0", only: :docs},
-     {:earmark, ">= 0.0.0", only: :docs}
-    ]
+     {:earmark, ">= 0.0.0", only: :docs}]
+  end
+
+  defp package do
+    [maintainers: [],
+     licenses: ["MIT"],
+     links: %{}]
   end
 end
